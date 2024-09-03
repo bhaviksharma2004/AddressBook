@@ -43,3 +43,20 @@
 th{
     background-color: #2bbcc1;
 }
+
+th, td{
+    text-align: center;
+    padding: 8px;
+}
+
+.container3{
+    background-color: lightgrey;
+    padding: 35px;
+}
+
+label {
+    display: inline-block;
+    width: 10%;
+    text-align: right;
+    margin-right: 25px;
+}
