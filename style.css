@@ -110,3 +110,17 @@ label {
         font-size: 0.9rem;
     }
 }
+
+@media (max-width: 480px) {
+    .input-box {
+        margin: 10px 0;
+    }
+
+    .input-box input {
+        padding: 4px;
+    }
+
+    .searchBox{
+        margin-top: 15px;
+    }
+}
