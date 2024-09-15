@@ -95,4 +95,18 @@ label {
         width: 100%;
         margin-top: 10px;
     }
+    
+    th, td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .searchBox{
+        margin-top: 15px;
+    }
+
+    #add-btn {
+        padding: 3px 5px;
+        font-size: 0.9rem;
+    }
 }
