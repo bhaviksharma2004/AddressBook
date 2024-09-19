@@ -1,26 +1,21 @@
-let data = localStorage.getItem("addressBookData");
-data = (data)? JSON.parse(data) : [];
+var data = JSON.parse(localStorage.getItem("addressBookData"));
+let userIdx = JSON.parse(sessionStorage.getItem("userLoginIndices")).userLoginIdx;
 
-const username = "bhavik13";
-const password = "123";
-let idx = getIdxOfUser(username, password);
 
 function renderData(){
-    if (idx === -1) return;
-
-    let userData = data[idx].usersData;
+    let userData = data[userIdx].usersData;
     document.getElementById("table-body").innerHTML = userData.map(function(ele, i) {
         return `<tr>
-        <td>${ele.name}</td>
-        <td>${ele.address}</td>
-                <td>${ele.phone}</td>
-                <td>${ele.email}</td>
-                <td>
-                <button onclick="deleteConfirm(${i})">
-                <i class="material-symbols-outlined">delete</i>
-                </button>
-                </td>
-            </tr>`
+                    <td>${ele.name}</td>
+                    <td>${ele.address}</td>
+                    <td>${ele.phone}</td>
+                    <td>${ele.email}</td>
+                    <td>
+                    <button onclick="deleteConfirm(${i})">
+                    <i class="material-symbols-outlined">delete</i>
+                    </button>
+                    </td>
+                </tr>`
     }).join('');
 }
 
@@ -32,7 +27,7 @@ function addData() {
     
     if (fname === "" || fphone === "") return;
 
-    if(!isPhnValid(fphone)){ 
+    if(!isPhnValid(fphone)){
         window.alert("Invalid Phone no.");
         return;
     }
@@ -47,22 +42,26 @@ function addData() {
         phone : fphone,
         email : femail,
     }
+
+    if(!data[userIdx].usersData){
+        data[userIdx].usersData = [];
+    }
+    data[userIdx].usersData.push(newData);
     
     document.getElementById("name").value = "";
     document.getElementById("address").value = "";
     document.getElementById("phone").value = "";
     document.getElementById("email").value = "";
     
-    data[idx].usersData.push(newData);
     localStorage.setItem("addressBookData", JSON.stringify(data));
     
     renderData();
 }
 
 function removeData(index){
-    if (idx === -1) return;
+    if (userIdx === -1) return;
     
-    data[idx].usersData.splice(index, 1);
+    data[userIdx].usersData.splice(index, 1);
     localStorage.setItem("addressBookData", JSON.stringify(data));
     
     renderData();
@@ -122,21 +121,12 @@ function deleteAll(){
     if (!flag) return;
     
     let val = prompt("Enter your password");
-    if(val === password){
-        data[idx].usersData = [];
+    if(val === data[userIdx].password){
+        data[userIdx].usersData = [];
         localStorage.setItem("addressBookData", JSON.stringify(data));
         renderData();
     }
     else window.alert("Incorrect password");
-}
-
-function getIdxOfUser(username, password) {
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].username === username && data[i].password === password) {
-            return i;
-        }
-    }
-    return -1;
 }
 
 renderData();
