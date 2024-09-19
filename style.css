@@ -14,9 +14,9 @@
 
 .container2{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 25px;
-    flex-wrap: wrap;
 }
 
 .searchBox {
@@ -29,15 +29,24 @@
     padding: 5px;
     width: 200px;
     font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
+    outline: none;
 }
 
 .table-container {
-    overflow-x: auto;
+    max-height: 257px;
+    overflow: auto;
 }
 
 #table{
     width: 100%;
-    border-collapse: collapse;
+}
+
+thead{
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 th{
@@ -46,19 +55,23 @@ th{
 
 th, td{
     text-align: center;
-    padding: 8px;
+    padding: 7px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
 }
 
 .container3{
     background-color: lightgrey;
-    padding: 35px;
+    padding: 30px;
 }
 
 label {
     display: inline-block;
     width: 10%;
     text-align: right;
-    margin-right: 25px;
 }
 
 .input-box {
@@ -67,8 +80,11 @@ label {
 
 .input-box input {
     padding: 2px;
+    outline: none;
     width: 100%;
     max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 #add-btn {
@@ -78,12 +94,21 @@ label {
     border: none;
     color: white;
     font-size: 1rem;
+    border-radius: 4px;
+}
+
+#add-btn:hover {
+    background-color: #505050;
 }
 
 @media (max-width: 768px) {
     .container2 {
         flex-direction: column;
         align-items: center;
+    }
+    label {
+        width: 100%; /* Make label full-width */
+        text-align: left;
     }
 
     .input-box {
@@ -95,7 +120,7 @@ label {
         width: 100%;
         margin-top: 10px;
     }
-    
+
     th, td {
         font-size: 14px;
         padding: 6px;
@@ -122,5 +147,14 @@ label {
 
     .searchBox{
         margin-top: 15px;
+    }
+
+    th, td {
+        font-size: 12px;
+    }
+
+    #add-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
     }
 }

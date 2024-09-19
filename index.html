@@ -27,7 +27,7 @@
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Email</th>
-                        <th>Actions</th>
+                        <th onclick="deleteAll()">Actions</th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
@@ -36,26 +36,26 @@
         </div>
         <div class="container3">
             <h2>Add new contact</h2>
-            <div>
+            <form>
                 <div class="input-box">
                     <label for="name">Name: </label>
-                    <input name="name" type="text">
+                    <input name="name" type="text" id="name">
                 </div>
                 <div class="input-box">
                     <label for="address">Address: </label>
-                    <input name="address" type="text">
+                    <input name="address" type="text" id="address">
                 </div>
                 <div class="input-box">
                     <label for="phone">Phone: </label>
-                    <input name="phone" type="tel" pattern="[0-9]{10}" required>
+                    <input name="phone" type="tel" id="phone">
                 </div>
                 <div class="input-box">
                     <label for="email">Email: </label>
-                    <input name="email" type="email">
+                    <input name="email" type="email" id="email">
                 </div>
 
                 <button id="add-btn" onclick="addData()">Add contact</button>
-            </div>
+            </form>
         </div>
     </div>
     <script src="project.js"></script>
