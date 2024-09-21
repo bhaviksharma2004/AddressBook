@@ -1,0 +1,160 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+.container1 h1{
+    background-color: rgb(142, 201, 221);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.container2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 25px;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.searchBox input {
+    padding: 5px;
+    width: 200px;
+    font-size: 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+}
+
+.table-container {
+    max-height: 257px;
+    overflow: auto;
+}
+
+#table{
+    width: 100%;
+}
+
+thead{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+th{
+    background-color: #2bbcc1;
+}
+
+th, td{
+    text-align: center;
+    padding: 7px;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.container3{
+    background-color: lightgrey;
+    padding: 30px;
+}
+
+label {
+    display: inline-block;
+    width: 10%;
+    text-align: right;
+}
+
+.input-box {
+    margin: 1.2rem;
+}
+
+.input-box input {
+    padding: 2px;
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#add-btn {
+    padding: 4px 6px;
+    background-color: rgb(100, 100, 100);
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+
+#add-btn:hover {
+    background-color: #505050;
+}
+
+@media (max-width: 768px) {
+    .container2 {
+        flex-direction: column;
+        align-items: center;
+    }
+    label {
+        width: 100%; /* Make label full-width */
+        text-align: left;
+    }
+
+    .input-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-box input {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    th, td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .searchBox{
+        margin-top: 15px;
+    }
+
+    #add-btn {
+        padding: 3px 5px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-box {
+        margin: 10px 0;
+    }
+
+    .input-box input {
+        padding: 4px;
+    }
+
+    .searchBox{
+        margin-top: 15px;
+    }
+
+    th, td {
+        font-size: 12px;
+    }
+
+    #add-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+}
