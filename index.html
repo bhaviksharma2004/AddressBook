@@ -3,61 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Address Book</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <title>Address Book Login</title>
+    <link rel="stylesheet" href="login_page/loginPage.css">
 </head>
 <body>
-    <div class="main-page">
-        <div class="container1">
-            <h1>Address Book</h1>
-        </div>
-        <div class="container2">
-            <h2>Contacts</h2>
-            <span class="searchBox">
-                <i class="material-symbols-outlined">Search</i>
-                <input type="text" name="Search" id="search" placeholder="Search name" >
-            </span>
-        </div>
-        <div class="table-container">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th onclick="sortTable()">Name</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th onclick="deleteAll()">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="table-body">
-                </tbody>
-            </table>
-        </div>
-        <div class="container3">
-            <h2>Add new contact</h2>
-            <form>
-                <div class="input-box">
-                    <label for="name">Name: </label>
-                    <input name="name" type="text" id="name">
-                </div>
-                <div class="input-box">
-                    <label for="address">Address: </label>
-                    <input name="address" type="text" id="address">
-                </div>
-                <div class="input-box">
-                    <label for="phone">Phone: </label>
-                    <input name="phone" type="tel" id="phone">
-                </div>
-                <div class="input-box">
-                    <label for="email">Email: </label>
-                    <input name="email" type="email" id="email">
-                </div>
-
-                <button id="add-btn" onclick="addData()">Add contact</button>
-            </form>
+    <div class="container">
+        <h1 id="title">Login</h1>
+        <form id="form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit" id="submit-btn">Login</button>
+        </form>
+        <div class="toggle">
+            <p>Don't have an account? <a href="#" id="toggle-link">Register</a></p>
         </div>
     </div>
-    <script src="project.js"></script>
+
+    <script src="/login_page/loginPage.js"></script>
 </body>
 </html>
