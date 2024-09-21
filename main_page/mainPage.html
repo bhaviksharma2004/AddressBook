@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="/main_page/mainPage.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+<body>
+    <div class="main-page">
+        <div class="container1">
+            <h1>Address Book</h1>
+        </div>
+        <div class="container2">
+            <h2>Contacts</h2>
+            <span class="searchBox">
+                <i class="material-symbols-outlined">Search</i>
+                <input type="text" name="Search" id="search-box" placeholder="Search name" >
+            </span>
+        </div>
+        <div class="table-container">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable()">Name</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th onclick="deleteAll()">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
+        <div class="container3">
+            <h2>Add new contact</h2>
+            <form>
+                <div class="input-box">
+                    <label for="name">Name: </label>
+                    <input name="name" type="text" id="name">
+                </div>
+                <div class="input-box">
+                    <label for="address">Address: </label>
+                    <input name="address" type="text" id="address">
+                </div>
+                <div class="input-box">
+                    <label for="phone">Phone: </label>
+                    <input name="phone" type="tel" id="phone">
+                </div>
+                <div class="input-box">
+                    <label for="email">Email: </label>
+                    <input name="email" type="email" id="email">
+                </div>
+
+                <button id="add-btn" onclick="addData()">Add contact</button>
+            </form>
+        </div>
+    </div>
+    <script src="/main_page/mainPage.js"></script>
+</body>
+</html>

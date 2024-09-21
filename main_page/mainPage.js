@@ -11,8 +11,11 @@ function renderData(){
                     <td>${ele.phone}</td>
                     <td>${ele.email}</td>
                     <td>
+                    <button onclick="deleteConfirm(${i})" style="margin-right: 10px">
+                        <i class="material-symbols-outlined">edit</i>
+                    </button>
                     <button onclick="deleteConfirm(${i})">
-                    <i class="material-symbols-outlined">delete</i>
+                        <i class="material-symbols-outlined">delete</i>
                     </button>
                     </td>
                 </tr>`
@@ -67,6 +70,10 @@ function removeData(index){
     renderData();
 }
 
+function editData(){
+    //
+}
+
 function sortTable(){
     const table = document.getElementById("table");
     const tableBody = document.getElementById("table-body");
@@ -89,6 +96,47 @@ function sortTable(){
 
     rows.forEach(row => tableBody.appendChild(row));
 }
+
+// Search Data
+
+const searchInput = document.getElementById("search-box");
+const tableBody = document.getElementById("table-body");
+
+searchInput.addEventListener('input', () => {
+    const toSearch = searchInput.value.toLowerCase().trim().split(/\s+/);
+    const numRows = tableBody.rows.length;
+    if (numRows === 0) return;
+
+    const numCols = tableBody.rows[0].cells.length;
+    
+    for(let i = 0; i < numRows; i++){
+        let contains = true;
+
+        for(let term of toSearch){
+            let rowContainsTerm = false;
+
+            for(let j = 0; j < numCols; j++){
+                const cellText = tableBody.rows[i].cells[j].textContent.toLowerCase();
+                const words = cellText.split(" ");
+
+                for(let word of words){
+                    if(word.startsWith(term)){
+                        rowContainsTerm = true;
+                        break;
+                    }
+                }
+                if(rowContainsTerm) break;
+            }
+            
+            if(!rowContainsTerm){
+                contains = false;
+                break;
+            }
+        }
+        tableBody.rows[i].style.display = contains ? '' : 'none';
+    }
+});
+
 
 // Utils
 function isPhnValid(value){

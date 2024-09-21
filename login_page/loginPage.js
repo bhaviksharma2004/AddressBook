@@ -13,7 +13,8 @@ toggleLink.addEventListener('click', (e) => {
         title.innerHTML = 'Login';
         submitBtn.innerHTML = 'Login';
         toggleLink.innerHTML = 'Register';
-    } else {
+    }
+    else {
         title.innerHTML = 'Register';
         submitBtn.innerHTML = 'Register';
         toggleLink.innerHTML = 'Login';
@@ -26,7 +27,7 @@ form.addEventListener('submit', (e) => {
     const password = document.getElementById('password').value;
     
     if (isLogin) {
-        if(validateUser(username, password)) location.assign("./index.html");
+        if(validateUser(username, password)) location.assign("./main_page/mainPage.html");
     } 
     else {
         if(isUserExist(username) !== -1) window.alert("Username already exists, choose different username");
@@ -37,10 +38,10 @@ form.addEventListener('submit', (e) => {
                 usersData : []
             });
             sessionStorage.setItem("userLoginIndices", JSON.stringify({userLoginIdx : data.length - 1}));
-            
             localStorage.setItem("addressBookData", JSON.stringify(data));
             
-            location.assign("./index.html");
+            window.alert("Registration Successfull");
+            location.assign("./main_page/mainPage.html");
         }
     }
 });
