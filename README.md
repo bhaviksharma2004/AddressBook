@@ -15,4 +15,4 @@ The Address Book project is a simple application designed to manage and store co
 - Databases - [LocalStorage is used]
 
 ## Access application
-https://bhaviksharma2004.github.io/AddressBook/
+https://address-book-woad.vercel.app/
