@@ -27,7 +27,7 @@ form.addEventListener('submit', (e) => {
     const password = document.getElementById('password').value;
     
     if (isLogin) {
-        if(validateUser(username, password)) location.assign("./main_page/mainPage.html");
+        if(validateUser(username, password)) location.assign("./main_page/index.html");
     } 
     else {
         if(isUserExist(username) !== -1) window.alert("Username already exists, choose different username");
@@ -41,7 +41,7 @@ form.addEventListener('submit', (e) => {
             localStorage.setItem("addressBookData", JSON.stringify(data));
             
             window.alert("Registration Successfull");
-            location.assign("./main_page/mainPage.html");
+            location.assign("./main_page/index.html");
         }
     }
 });
