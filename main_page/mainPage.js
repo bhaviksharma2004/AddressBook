@@ -11,12 +11,12 @@ function renderData(){
                     <td>${ele.phone}</td>
                     <td>${ele.email}</td>
                     <td>
-                    <button onclick="deleteConfirm(${i})" style="margin-right: 10px">
-                        <i class="material-symbols-outlined">edit</i>
-                    </button>
-                    <button onclick="deleteConfirm(${i})">
-                        <i class="material-symbols-outlined">delete</i>
-                    </button>
+                        <button onclick="editData(this, ${i})" style="margin-right: 10px">
+                            <i class="material-symbols-outlined">edit</i>
+                        </button>
+                        <button onclick="deleteConfirm(${i})">
+                            <i class="material-symbols-outlined">delete</i>
+                        </button>
                     </td>
                 </tr>`
     }).join('');
@@ -70,8 +70,25 @@ function removeData(index){
     renderData();
 }
 
-function editData(){
-    //
+function editData(button, rowIdx){
+    const row = button.parentElement.parentElement;
+    const cells = row.getElementsByTagName('td');
+
+    button.innerHTML = '<i class="material-symbols-outlined">save</i>';
+    
+    cells[0].innerHTML = `<input style="font-size:1.1rem;" type="text" value="${cells[0].innerText}">`
+    cells[1].innerHTML = `<input style="font-size:1.1rem;" type="text" value="${cells[1].innerText}">`
+    cells[2].innerHTML = `<input style="font-size:1.1rem;" type="phone" value="${cells[2].innerText}">`
+    cells[3].innerHTML = `<input style="font-size:1.1rem;" type="email" value="${cells[3].innerText}">`
+
+    button.onclick = function (){
+        let name = cells[0].querySelector('input').value;
+        let address = cells[1].querySelector('input').value;
+        let phone = cells[2].querySelector('input').value;
+        let email = cells[3].querySelector('input').value;
+
+        saveData(userIdx, rowIdx, name, address, phone, email);
+    };
 }
 
 function sortTable(){
@@ -175,6 +192,31 @@ function deleteAll(){
         renderData();
     }
     else window.alert("Incorrect password");
+}
+
+function saveData(userIdx, rowIdx, name, address, phone, email){
+    const newData = {
+        name : name,
+        address : address,
+        phone : phone,
+        email : email
+    };
+
+    if (name === "" || phone === "") return;
+
+    if(!isPhnValid(phone)){
+        window.alert("Invalid Phone no.");
+        return;
+    }
+    if(!isEmailValid(email)){
+        window.alert("Invalid Email");
+        return;
+    }
+
+    data[userIdx].usersData[rowIdx] = newData;
+    localStorage.setItem('addressBookData', JSON.stringify(data));
+
+    renderData();
 }
 
 renderData();
