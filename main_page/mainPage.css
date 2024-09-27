@@ -158,3 +158,11 @@ label {
         font-size: 0.8rem;
     }
 }
+
+@media (max-width: 627px){
+    td button{
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+    }
+}
