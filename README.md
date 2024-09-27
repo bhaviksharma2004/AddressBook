@@ -1,4 +1,5 @@
 # AddressBook
+https://address-book-woad.vercel.app/
 
 ## Description
 The Address Book project is a simple application designed to manage and store contacts of multiple users, including details such as name, address, phone number, and email.
@@ -14,6 +15,3 @@ The Address Book project is a simple application designed to manage and store co
 ## Technologies Used
 - Language: HTML, CSS, JavaScript
 - Databases: LocalStorage used
-
-## Access application
-https://address-book-woad.vercel.app/
