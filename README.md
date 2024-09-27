@@ -5,14 +5,15 @@ The Address Book project is a simple application designed to manage and store co
 
 ## Features
 - Add new contacts
-- Delete contacts or Delete all contacts
+- Delete single contact or Delete all contacts
 - Search contacts
+- Edit contacts
 - Sort contacts by name
 - Contacts saves automatically
 
 ## Technologies Used
-- Language: [HTML, CSS, JavaScript]
-- Databases - [LocalStorage is used]
+- Language: HTML, CSS, JavaScript
+- Databases: LocalStorage used
 
 ## Access application
 https://address-book-woad.vercel.app/
