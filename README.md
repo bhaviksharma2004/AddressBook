@@ -3,7 +3,7 @@ The Address Book project is a simple application designed to manage and store co
 
 <p align="center">
   <img src="assets/logo.png" alt="AddressBook Logo" width="400"/><br>
-  <a href="https://address-book-woad.vercel.app/">Visit AddressBook Site</a>
+  <a href="https://address-book-woad.vercel.app/" target="_blank">Visit AddressBook Site</a>
 </p>
 
 ## Features
